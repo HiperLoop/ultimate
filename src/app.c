@@ -34,9 +34,8 @@ SDL_AppResult SDL_AppIterate(void *appstate)
     while ((now - as->last_step) >= as->MillisPerStep) {
         as->last_step += as->MillisPerStep;
         if(as->running) {
-            printf("%d\n", (*as->game_board->state)[7]);
+            printf("%d\n", (as->game_board->state[7]));
         };
-        printf("running\n");
     }
 
     int gridSize = as->game_board->gridSize;
@@ -69,18 +68,15 @@ SDL_AppResult SDL_AppInit(void **appstate, int argc, char *argv[])
         return SDL_APP_FAILURE;
     }
 
-    Board* firstboard = calloc(1, sizeof(Board));
+    Board *firstboard = calloc(1, sizeof(Board));
     firstboard->gridSize = 9;
     _Init_Board(&firstboard);
     as->game_board = firstboard;
-    printf("this : %d\n", (*as->game_board->state)[7]);
     as->MillisPerStep = DEFAULT_STEP_RATE_IN_MILLISECONDS;
     as->running = 1;
     *appstate = as;
-    printf("here : %d\n", (((AppState *) *appstate)->game_board->state[0]));
-    firstboard = 0;
 
-    if (!SDL_CreateWindowAndRenderer("first test", SDL_WINDOW_WIDTH, SDL_WINDOW_HEIGHT, 0, &as->window, &as->renderer)) {
+    if (!SDL_CreateWindowAndRenderer("Ultimate TicTacToe", SDL_WINDOW_WIDTH, SDL_WINDOW_HEIGHT, 0, &as->window, &as->renderer)) {
         return SDL_APP_FAILURE;
     }
 
