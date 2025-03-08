@@ -8,3 +8,7 @@ run:
 test:
 	gcc ./src/main.c ./src/test.c ./src/board.c -o ./public/test.exe -lSDL3
 	./public/test.exe
+
+app:
+	gcc ./src/app.c ./src/test.c ./src/board.c -o ./public/app.exe -lSDL3
+	./public/app.exe
