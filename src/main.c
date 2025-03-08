@@ -12,5 +12,6 @@ int main()
     printf("%d\n", (*firstState)[81]);
     int y = foo(3);
     printf("%d\n", y);
+    free(firstboard);
     return 0;
 }
