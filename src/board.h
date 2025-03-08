@@ -15,6 +15,6 @@ typedef struct Board
     int** possibleMoves;
 } Board;
 
-void _Init_Board(struct Board**);
+void _Init_Board(Board**);
 
 #endif

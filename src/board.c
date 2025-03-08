@@ -4,10 +4,26 @@
 
 void _Init_Board(Board** board)
 {
-    int* state = malloc((*board)->gridSize * (*board)->gridSize * sizeof(int));
-    for(int i = 0; (*board)->gridSize * (*board)->gridSize > i; ++i) {
-        state[i] = 17;
+    (*board)->ultGridSize = ((*board)->gridSize)/3;
+    (*board)->playsquare = -1;
+    (*board)->moveCounter = 0;
+    (*board)->gameOver = 0;
+    (*board)->winner = 0;
+    (*board)->currentPlayer = 1;
+    int i;
+    int* emptyState = malloc((*board)->gridSize * (*board)->gridSize * sizeof(int));
+    for(i = 0; i < (*board)->gridSize * (*board)->gridSize; ++i) {
+        emptyState[i] = 12;
     }
-    free((*board)->state);
-    (*board)->state = &state;
+    (*board)->state = &emptyState;
+    int* emptyUltState = malloc((*board)->ultGridSize * (*board)->ultGridSize * sizeof(int));
+    for(i = 0; i < (*board)->ultGridSize * (*board)->ultGridSize; ++i) {
+        emptyUltState[i] = 35;
+    }
+    (*board)->ultState = &emptyUltState;
+    int* emptyMoves = malloc((*board)->gridSize * (*board)->gridSize * sizeof(int));
+    for(i = 0; i < (*board)->gridSize * (*board)->gridSize; ++i) {
+        emptyMoves[i] = 3;
+    }
+    (*board)->possibleMoves = &emptyMoves;
 }

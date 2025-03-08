@@ -9,7 +9,7 @@ int main()
     firstboard->gridSize = 9;
     _Init_Board(&firstboard);
     int ** firstState = firstboard->state;
-    printf("%d\n", (*firstState)[81]);
+    printf("%d\n", (*firstState)[7]);
     int y = foo(3);
     printf("%d\n", y);
     free(firstboard);
