@@ -15,15 +15,15 @@ void _Init_Board(Board** board)
     for(i = 0; i < (*board)->gridSize * (*board)->gridSize; ++i) {
         emptyState[i] = 12;
     }
-    (*board)->state = &emptyState;
+    (*board)->state = emptyState;
     int* emptyUltState = malloc((*board)->ultGridSize * (*board)->ultGridSize * sizeof(int));
     for(i = 0; i < (*board)->ultGridSize * (*board)->ultGridSize; ++i) {
         emptyUltState[i] = 35;
     }
-    (*board)->ultState = &emptyUltState;
+    (*board)->ultState = emptyUltState;
     int* emptyMoves = malloc((*board)->gridSize * (*board)->gridSize * sizeof(int));
     for(i = 0; i < (*board)->gridSize * (*board)->gridSize; ++i) {
         emptyMoves[i] = 3;
     }
-    (*board)->possibleMoves = &emptyMoves;
+    (*board)->possibleMoves = emptyMoves;
 }

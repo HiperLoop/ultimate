@@ -10,9 +10,9 @@ typedef struct Board
     int currentPlayer;
     int gameOver;
     int winner;
-    int** state;
-    int** ultState;
-    int** possibleMoves;
+    int* state;
+    int* ultState;
+    int* possibleMoves;
 } Board;
 
 void _Init_Board(Board**);
