@@ -3,4 +3,4 @@
 
 int foo(int x);
 
-#endif // FOO_H_
+#endif
